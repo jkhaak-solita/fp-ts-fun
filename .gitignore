@@ -1,0 +1,23 @@
+*
+
+!.gitignore
+!.gitattributes
+!.yarnrc.yml
+!.pnp.cjs
+!.pnp.loader.mjs
+!.tool-versions
+!jest.config.ts
+!package.json
+!tsconfig.json
+!yarn.lock
+
+!src/
+!src/**/*.ts
+
+# rules for yarn
+!.yarn/
+!.yarn/*/
+!.yarn/cache/*.zip
+!.yarn/plugins/*/
+!.yarn/plugins/*/*.cjs
+!.yarn/releases/*.cjs
