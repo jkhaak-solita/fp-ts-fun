@@ -7,6 +7,7 @@
 !.pnp.loader.mjs
 !.tool-versions
 !.yarnrc.yml
+!cdk.json
 !index.ts
 !jest.config.ts
 !package.json
