@@ -26,3 +26,11 @@ export type ReducedStats = {
   readonly status: Status
   readonly message: string
 }
+
+type StatusCode = 200
+
+export type HttpResult = {
+  readonly statusCode: StatusCode
+  readonly body: string
+  readonly headers: Record<string, string>
+}

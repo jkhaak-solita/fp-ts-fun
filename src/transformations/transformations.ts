@@ -1,6 +1,6 @@
 import { Monoid, concatAll, struct } from 'fp-ts/Monoid'
 import { MonoidSum } from 'fp-ts/number'
-import {Metric, ReducedStats, StatsResult, StatsSumResult, Status} from '../util/types'
+import { HttpResult, Metric, ReducedStats, StatsResult, StatsSumResult, Status } from '../util/types'
 import { GetMetricStatisticsOutput } from 'aws-sdk/clients/cloudwatch'
 
 export const metricsToStatsResult = (functionName: string, metricName: Metric) => (d: GetMetricStatisticsOutput): StatsResult => {
@@ -74,3 +74,11 @@ export const statsReducer = (results: readonly StatsSumResult[]): ReducedStats =
 
   return concatAll(ReducedStatsMonoid)(results.map(singleStatsSumMapper))
 }
+
+export const httpResultFromStats = (result: ReducedStats): HttpResult => ({
+  statusCode: 200,
+  body: JSON.stringify(result),
+  headers: {
+    'Access-Control-Allow-Origin': '*'
+  }
+})
