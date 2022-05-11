@@ -19,3 +19,10 @@ export type StatsSumResult = {
   readonly metric: Metric
   readonly sum: number
 }
+
+export type Status = 'OK' | 'WARN' | 'ERR'
+
+export type ReducedStats = {
+  readonly status: Status
+  readonly message: string
+}
