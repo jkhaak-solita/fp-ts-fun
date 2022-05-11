@@ -13,3 +13,9 @@ export type StatsResult = {
   readonly metric: Metric
   readonly data?: Datapoints
 }
+
+export type StatsSumResult = {
+  readonly functionName: string
+  readonly metric: Metric
+  readonly sum: number
+}
