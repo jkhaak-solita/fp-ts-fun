@@ -34,3 +34,8 @@ export type HttpResult = {
   readonly body: string
   readonly headers: Record<string, string>
 }
+
+export type Config = {
+  between: Between
+  functionName: string
+}

@@ -82,3 +82,8 @@ export const httpResultFromStats = (result: ReducedStats): HttpResult => ({
     'Access-Control-Allow-Origin': '*'
   }
 })
+
+export const reducedStatsForFailure = (message: string): ReducedStats => ({
+  status: 'ERR',
+  message: `Could not retrieve info for this function. Error: ${message}`
+})
