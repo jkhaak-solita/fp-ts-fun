@@ -3,8 +3,6 @@
 !.eslintrc.js
 !.gitattributes
 !.gitignore
-!.pnp.cjs
-!.pnp.loader.mjs
 !.tool-versions
 !.yarnrc.yml
 !cdk.json
@@ -21,7 +19,6 @@
 # rules for yarn
 !.yarn/
 !.yarn/*/
-!.yarn/cache/*.zip
 !.yarn/plugins/*/
 !.yarn/plugins/*/*.cjs
 !.yarn/releases/*.cjs
