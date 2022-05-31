@@ -35,9 +35,9 @@
     "typescript": "^4.7.2"
   },
   "scripts": {
-    "build": "esbuild src/lambda/index.ts --bundle --outfile=dist/index.js --platform=node --minify",
-    "diff": "cdk diff",
-    "deploy": "cdk deploy",
+    "build": "esbuild src/lambda/index.ts --bundle --outfile=dist/index.js --platform=node",
+    "diff": "yarn build && cdk diff",
+    "deploy": "yarn build && cdk deploy",
     "test": "jest",
     "start-local-api": "cdk synth --no-staging > template.yaml && sam local start-api"
   }
