@@ -20,6 +20,10 @@
 !src/**/
 !src/**/*.ts
 
+!__tests__/
+!__tests__/**/
+!__tests__/**/*.ts
+
 # rules for yarn
 !.yarn/
 !.yarn/*/

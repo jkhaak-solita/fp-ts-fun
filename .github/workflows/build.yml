@@ -1,8 +1,9 @@
 name: Build
 on:
   push:
-    path:
-      - src/lambda/**/*.ts
+    paths:
+      - "src/lambda/**/*.ts"
+      - "__tests__/lambda/**/*.spec.ts"
 jobs:
   Build:
    runs-on: ubuntu-22.04
@@ -13,6 +14,8 @@ jobs:
       run: |
         yarn install --immutable
         yarn build
+    - name: Run tests
+      run: yarn test
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
