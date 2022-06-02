@@ -1,4 +1,4 @@
-import IO, { IO as TIO, map } from 'fp-ts/IO'
+import IO, { io, IO as TIO, map } from 'fp-ts/IO'
 import { pipe } from 'fp-ts/function'
 import { Between, Config } from './types'
 import { sequenceT } from 'fp-ts/Apply'
@@ -12,7 +12,7 @@ const addToConfig = (between: Between, functionName?: string): Config => ({
 
 export const generateConfig = (): TIO<Config> => {
   return pipe(
-    sequenceT(IO.Apply)(
+    sequenceT(io)(
       map(dateToBetween)(create),
       () => process.env.FUNCTION_NAME
     ),

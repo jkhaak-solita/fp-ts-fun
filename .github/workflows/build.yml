@@ -1,17 +1,20 @@
 name: Build
-on: [push]
+on:
+  push:
+    path:
+      - src/lambda/**/*.ts
 jobs:
   Build:
    runs-on: ubuntu-22.04
    steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - run: |
+    - name: Build
+      run: |
         yarn install --immutable
         yarn build
-        cd dist && zip -r ../out.zip index.js
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-       name: lambda
-       path: out.zip
+       name: dist
+       path: dist

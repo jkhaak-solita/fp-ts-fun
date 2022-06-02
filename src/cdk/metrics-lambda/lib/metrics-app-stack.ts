@@ -4,13 +4,13 @@ import { Stack, StackProps } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
 import * as path from 'path'
 
-export class MyAppStack extends Stack {
+export class MetricsAppStack extends Stack {
   constructor (scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
     const hello = new lambda.Function(this, 'Hello', {
       runtime: lambda.Runtime.NODEJS_16_X,
-      code: lambda.Code.fromAsset(path.join(__dirname, '../../dist/')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../../../../dist')),
       handler: 'index.handler',
       environment: {
         FUNCTION_NAME: 'monitoring-example-MetricsLambda-123456789'
