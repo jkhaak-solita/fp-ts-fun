@@ -12,6 +12,10 @@
 !tsconfig.json
 !yarn.lock
 
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
+
 !src/
 !src/**/
 !src/**/*.ts
