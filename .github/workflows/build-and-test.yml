@@ -1,0 +1,24 @@
+
+name: Build and test for feature branches
+on:
+  push:
+    branches-ignore:
+      - main
+      - develop
+    paths:
+      - src/cdk/**/*.ts
+      - src/lambda/**/*.ts
+      - __tests__/cdk/**/*.spec.ts
+      - __tests__/lambda/**/*.spec.ts
+jobs:
+  Build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          yarn install --immutable
+          yarn build
+      - name: Run tests
+        run: yarn test
