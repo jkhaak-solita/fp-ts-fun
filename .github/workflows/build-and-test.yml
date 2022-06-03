@@ -1,7 +1,8 @@
-name: CI/CD/CD
+
+name: Build and test for feature branches
 on:
   push:
-    branches:
+    branches-ignore:
       - main
       - develop
     paths:
@@ -21,19 +22,3 @@ jobs:
           yarn build
       - name: Run tests
         run: yarn test
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
-  Deploy:
-    needs: Build
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist
