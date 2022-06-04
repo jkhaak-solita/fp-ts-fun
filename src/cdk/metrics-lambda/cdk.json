@@ -1,5 +1,5 @@
 {
-  "app": "yarn ts-node --prefer-ts-exts src/bin/my-app.ts",
+  "app": "yarn ts-node --prefer-ts-exts bin/metrics-app.ts",
   "watch": {
     "include": [
       "**"
