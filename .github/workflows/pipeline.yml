@@ -1,14 +1,14 @@
 name: CI/CD/CD
-on:
-  push:
-    branches:
-      - main
-      - develop
-    paths:
-      - src/cdk/**/*.ts
-      - src/lambda/**/*.ts
-      - __tests__/cdk/**/*.spec.ts
-      - __tests__/lambda/**/*.spec.ts
+on: push
+  # push:
+  #   branches:
+  #     - main
+  #     - develop
+  #   paths:
+  #     - src/cdk/**/*.ts
+  #     - src/lambda/**/*.ts
+  #     - __tests__/cdk/**/*.spec.ts
+  #     - __tests__/lambda/**/*.spec.ts
 jobs:
   Build:
     runs-on: ubuntu-22.04
