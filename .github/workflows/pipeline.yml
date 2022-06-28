@@ -1,13 +1,14 @@
 name: Pipeline
 on:
-   push:
-     branches:
-       - main
-     paths:
-       - src/cdk/**/*.ts
-       - src/lambda/**/*.ts
-       - __tests__/cdk/**/*.spec.ts
-       - __tests__/lambda/**/*.spec.ts
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - src/cdk/**/*.ts
+      - src/lambda/**/*.ts
+      - __tests__/cdk/**/*.spec.ts
+      - __tests__/lambda/**/*.spec.ts
 jobs:
 
   build:
