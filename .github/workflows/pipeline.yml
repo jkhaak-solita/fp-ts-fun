@@ -1,16 +1,16 @@
-name: CI/CD/CD
-on: push
-  # push:
-  #   branches:
-  #     - main
-  #     - develop
-  #   paths:
-  #     - src/cdk/**/*.ts
-  #     - src/lambda/**/*.ts
-  #     - __tests__/cdk/**/*.spec.ts
-  #     - __tests__/lambda/**/*.spec.ts
+name: Pipeline
+on:
+   push:
+     branches:
+       - main
+     paths:
+       - src/cdk/**/*.ts
+       - src/lambda/**/*.ts
+       - __tests__/cdk/**/*.spec.ts
+       - __tests__/lambda/**/*.spec.ts
 jobs:
-  Build:
+
+  build:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
@@ -26,7 +26,8 @@ jobs:
         with:
           name: dist
           path: dist
-  Deploy:
+
+  deploy:
     needs: Build
     runs-on: ubuntu-22.04
     steps:
