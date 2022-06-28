@@ -11,9 +11,31 @@ on:
       - __tests__/lambda/**/*.spec.ts
 
 jobs:
-  build_workflow:
-    uses: ./.github/workflows/build.yml
 
-  test_workflow:
-    needs: build_workflow
-    uses: ./.github/workflows/test.yml
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          yarn install --immutable
+          yarn build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: Run tests
+        run: yarn test
