@@ -11,7 +11,7 @@ on:
       - __tests__/lambda/**/*.spec.ts
 jobs:
 
-  build:
+  build-and-test:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
@@ -32,8 +32,6 @@ jobs:
     needs: Build
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
